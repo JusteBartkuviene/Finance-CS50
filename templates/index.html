@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table size=100%>
+        <tr style="font-weight: bold">
+            <td>Symbol</td>
+            <td>Name</td>
+            <td>Shares</td>
+            <td>Price</td>
+            <td>Total</td>
+        </tr>
+        <tr>
+            {% for row in rows %}
+            <td>{{row["symbol"]}}</td>
+            <td>{{row["name"]}}</td>
+            <td>{{row["shares"]}}</td>
+            <td>${{row["price"]}}</td>
+            <td>${{row["total"]}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>CASH</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>${{cash}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="font-weight: bold">TOTAL</td>
+            <td>${{counter_all}}</td>
+        </tr>
+    </table>
+{% endblock %}
